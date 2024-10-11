@@ -1,4 +1,3 @@
-// Online C++ compiler to run C++ program online
 #include <bits/stdc++.h>
 using namespace std;
 class Node{
@@ -8,7 +7,7 @@ class Node{
     Node*right;
     Node(int data){
         this->data=data;
-        this->right=nullptr;
+        this->right4=nullptr;
         this->left=nullptr;
     }
 };
