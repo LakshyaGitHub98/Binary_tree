@@ -7,7 +7,7 @@ class Node{
     Node*right;
     Node(int data){
         this->data=data;
-        this->right4=nullptr;
+        this->right=nullptr;
         this->left=nullptr;
     }
 };
@@ -51,6 +51,12 @@ vector<vector<int>> levelOrder(Node*root){
     }
     return ans;
 }
+int max_h(Node*temp){
+    if(temp==NULL)return 0;
+    int l=max_h(temp->left);
+    int r=max_h(temp->right);
+    return 1+max(l,r); 
+}
 int main() {
     Node*root=new Node(1);
     root->left=new Node(2);
@@ -59,12 +65,13 @@ int main() {
     root->left->right=new Node(5);
     root->right->right=new Node(6);
     root->right->left=new Node(7);
-    vector<vector<int>>lvl=levelOrder(root);
+    /*vector<vector<int>>lvl=levelOrder(root);
     for(int i=0;i<lvl.size();i++){
         for(int j=0;j<lvl[i].size();j++){
             cout<<lvl[i][j]<<" ";
         }
         cout<<endl;
-    }
+    }*/
+    cout<<max_h(root);
     return 0;
 }
